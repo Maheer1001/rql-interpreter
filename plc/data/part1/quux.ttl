@@ -1,0 +1,13 @@
+@base <http://example.org/quux/> .
+@prefix o: <http://example.org/ont/> .
+
+<widget> o:price 10 .
+<widget> o:price 25 .
+<widget> o:price 15 .
+<widget> o:price 25 .
+
+<gadget> o:price 100 .
+<gadget> o:price 75 .
+<gadget> o:price 101 .
+
+<thing> o:price 3 .

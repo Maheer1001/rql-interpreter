@@ -1,0 +1,2 @@
+<http://example.org/doc1> <http://purl.org/dc/terms/creator> <http://example.org/creator/Alice> .
+<http://example.org/doc2> <http://purl.org/dc/terms/creator> <http://example.org/creator/Bob> .

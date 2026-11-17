@@ -1,0 +1,8 @@
+LET @quux = <quux.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:price ?max }
+WHERE {
+  @quux { ?s @ont:price ?price }
+}
+GROUP BY(?s) HAVING(?max = MAX(?price))

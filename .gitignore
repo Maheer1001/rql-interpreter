@@ -1,0 +1,41 @@
+# Stack and GHC build artefacts
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.hie
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+*~
+
+# Temporary files
+*.swp
+*.tmp
+*.temp
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.tag
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db

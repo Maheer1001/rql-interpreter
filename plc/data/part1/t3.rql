@@ -1,0 +1,7 @@
+LET @qux = <qux.ttl>
+
+CONSTRUCT { ?s ?p <http://example.org/uos> }
+WHERE {
+  @qux { ?s ?p <http://example.org/uos> }
+  FILTER(?p == <http://example.org/ont/studiesAt> || ?p == <http://example.org/ont/worksFor>)
+}

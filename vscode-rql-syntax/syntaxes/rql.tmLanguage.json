@@ -1,0 +1,116 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "rql",
+    "scope": "source.rql",
+    "scopeName": "source.rql",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#graphs" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#curie" },
+        { "include": "#colon-local" },
+        { "include": "#uris" },
+        { "include": "#variables" },
+        { "include": "#group-by" },
+        { "include": "#order-by" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#constants" },
+        { "include": "#set-ops" },
+        { "include": "#aggregates" },
+        { "include": "#builtins" },
+        { "include": "#order-modifiers" },
+        { "include": "#operators" }
+    ],
+    "repository": {
+        "comments": {
+            "name": "comment.line.double-dash.rql",
+            "match": "--[^\\n]*"
+        },
+        "graphs": {
+            "name": "constant.other.graph.rql",
+            "match": "<[^>\\s]+\\.ttl>"
+        },
+        "strings": {
+            "name": "string.quoted.double.rql",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                { "name": "constant.character.escape.rql", "match": "\\\\." }
+            ]
+        },
+        "numbers": {
+            "name": "constant.numeric.integer.rql",
+            "match": "(?<![\\w.])(\\d+)(?![\\w.])"
+        },
+        "curie": {
+            "name": "entity.name.type.namespace-prefix.rql",
+            "comment": "@graph:local from LET @prefix = <uri> — match before plain @graph",
+            "match": "@[a-zA-Z][a-zA-Z0-9_]*:[a-zA-Z0-9_-]+"
+        },
+        "colon-local": {
+            "name": "entity.name.tag.prefixed-name.rql",
+            "comment": "Turtle-style :localName predicate/object fragment",
+            "match": ":[a-zA-Z][a-zA-Z0-9_-]*"
+        },
+        "uris": {
+            "name": "constant.other.uri.rql",
+            "match": "<[^>\\s]+>"
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.readwrite.rql",
+                    "match": "\\?[a-zA-Z][a-zA-Z0-9_]*"
+                },
+                {
+                    "name": "variable.other.graph.rql",
+                    "match": "@[a-zA-Z][a-zA-Z0-9_]*"
+                }
+            ]
+        },
+        "group-by": {
+            "name": "keyword.control.rql",
+            "comment": "Case-sensitive like Lexer.x; do not use (?i) — editor must match tokeniser.",
+            "match": "\\bGROUP\\s+BY\\b"
+        },
+        "order-by": {
+            "name": "keyword.control.rql",
+            "match": "\\bORDER\\s+BY\\b"
+        },
+        "keywords": {
+            "name": "keyword.control.rql",
+            "match": "\\b(IF|THEN|ELSE|LET|ARGS|CONSTRUCT|WHERE|FILTER|OPTIONAL|HAVING)\\b"
+        },
+        "types": {
+            "name": "storage.type.rql",
+            "match": "\\b(INT|BOOL|STRING|URI)\\b"
+        },
+        "constants": {
+            "name": "constant.language.rql",
+            "match": "\\b(TRUE|FALSE)\\b"
+        },
+        "set-ops": {
+            "name": "keyword.operator.set.rql",
+            "match": "\\b(UNION|INTERSECT|EXCEPT)\\b"
+        },
+        "aggregates": {
+            "name": "support.function.aggregate.rql",
+            "match": "\\b(COUNT|MAX|MIN|AVG|SUM)\\b"
+        },
+        "builtins": {
+            "name": "support.function.rql",
+            "match": "\\b(ABS|REGEX|TYPE|FIRST|LAST|DISTINCT)\\b"
+        },
+        "order-modifiers": {
+            "name": "keyword.other.order.rql",
+            "match": "\\b(ASC|DESC)\\b"
+        },
+        "operators": {
+            "name": "keyword.operator.rql",
+            "comment": "Longest multi-char first; no \\b around single punctuation",
+            "match": "\\|\\||&&|==|!=|>=|<=|!|[+\\-*/%]|[<>=]"
+        }
+    }
+}

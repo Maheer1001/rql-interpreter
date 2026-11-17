@@ -1,0 +1,5 @@
+<http://example.org/baz/alice> <http://example.org/ont/hasAge> 30 .
+<http://example.org/baz/carol> <http://example.org/ont/hasAge> 21 .
+<http://example.org/baz/eve> <http://example.org/ont/hasAge> 25 .
+<http://example.org/baz/frank> <http://example.org/ont/hasAge> 21 .
+<http://example.org/baz/grace> <http://example.org/ont/hasAge> 100 .

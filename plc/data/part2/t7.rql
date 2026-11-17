@@ -1,0 +1,26 @@
+LET @foo = <foo.ttl>
+
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  @foo { ?s ?p ?o }
+  FILTER(
+    (
+      (?s == <http://example.org/jane>) &&
+      !(?p == <http://ont.example.org/hasName>) &&
+      !((?o == "Fred") || (?o == "Sally"))
+    )
+    ||
+    (
+      !(?s == <http://example.org/jane>) &&
+      (?p == <http://ont.example.org/hasName>) &&
+      !((?o == "Fred") || (?o == "Sally"))
+    )
+    ||
+    (
+      !(?s == <http://example.org/jane>) &&
+      !(?p == <http://ont.example.org/hasName>) &&
+      ((?o == "Fred") || (?o == "Sally"))
+    )
+  )
+}
+

@@ -1,0 +1,7 @@
+LET @quux = <part1/quux.ttl>
+
+CONSTRUCT { ?s ?p ?max }
+WHERE {
+  @quux { ?s ?p ?num }
+}
+GROUP BY (?s, ?p) HAVING (?max = MAX(?num))

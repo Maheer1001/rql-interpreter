@@ -1,0 +1,10 @@
+LET @foo = <foo.ttl>
+LET @baz = <baz.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:name ?name }
+WHERE {
+  { @foo { ?s @ont:name ?name } }
+  INTERSECT
+  { @baz { ?s @ont:hasAge ?age } }
+}

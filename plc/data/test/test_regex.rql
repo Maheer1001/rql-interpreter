@@ -1,0 +1,14 @@
+LET @p = <people.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:name ?name }
+WHERE {
+  @p { ?s @ont:name ?name }
+  REGEX(?name, "^[AB]")
+}
+
+CONSTRUCT { ?s @ont:email ?email }
+WHERE {
+  @p { ?s @ont:email ?email }
+  REGEX(?email, "@example\.org$")
+}

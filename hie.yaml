@@ -1,0 +1,14 @@
+cradle:
+  multi:
+    - path: "plc/src"
+      config:
+        stack:
+          component: "plc:lib"
+    - path: "plc/app"
+      config:
+        stack:
+          component: "plc:exe:plc-exe"
+    - path: "plc/test"
+      config:
+        stack:
+          component: "plc:test:plc-test"

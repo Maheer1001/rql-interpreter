@@ -1,0 +1,7 @@
+LET @qux = <part1/qux.ttl>
+
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  @qux { ?s ?p ?o }
+  FILTER(?o == <http://example.org/ont/studiesAt> || ?o == <http://example.org/ont/worksFor>)
+}

@@ -1,0 +1,12 @@
+@base <http://example.org/foo/> .
+@prefix ont: <http://example.org/ont/> .
+
+<alice> ont:name "Alice" ;
+        ont:age 30 ;
+        ont:email "alice@example.org" .
+
+<http://example.org/bob> ont:name "Bob" ;
+                         ont:age 28 .
+
+<http://example.org/shared> ont:name "Same" .
+<http://example.org/shared> ont:age 1 .

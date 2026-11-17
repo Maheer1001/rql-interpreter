@@ -1,0 +1,62 @@
+# Project information
+name:       plc
+version:    0.1.0.0
+homepage:   https://git.soton.ac.uk/comp2322/plc
+license:    BSD-3-Clause
+author:     "Group 92 (COMP2322)"
+maintainer: "Group 92 (COMP2322)"
+copyright:  "2026 Group 92 (COMP2322), University of Southampton"
+
+extra-source-files:
+- README.md
+
+description: RQL interpreter written in Haskell.
+
+dependencies:
+- base >= 4.7 && < 5
+- array
+- containers
+- regex-tdfa
+- ansi-terminal
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+  verbatim: |
+    build-tool-depends:
+      alex:alex,
+      happy:happy
+
+executables:
+  plc-exe:
+    main:        Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - plc
+
+tests:
+  plc-test:
+    main:        Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - plc
+    - directory
+    - filepath

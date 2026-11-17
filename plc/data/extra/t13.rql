@@ -1,0 +1,7 @@
+LET @people = <people.ttl>
+LET @ont = <http://example.org/ont/>
+CONSTRUCT { ?s @ont:name ?name } . { ?s @ont:email ?email }
+WHERE {
+  @people { ?s @ont:name ?name }
+  OPTIONAL { @people { ?s @ont:email ?email } }
+}

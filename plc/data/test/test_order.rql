@@ -1,0 +1,6 @@
+LET @g = <order.ttl>
+
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  @g { ?s ?p ?o }
+}

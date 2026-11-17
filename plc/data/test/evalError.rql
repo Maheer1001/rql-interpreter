@@ -1,0 +1,6 @@
+LET @foo = <part1/foo.ttl>
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  @foo { ?s ?p ?o }
+  FILTER(?x + 1 > 5)
+}

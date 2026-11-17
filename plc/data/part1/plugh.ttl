@@ -1,0 +1,8 @@
+@base <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<Dog> rdfs:subClassOf <Animal> .
+<Cat> rdfs:subClassOf <Animal> .
+<Dog> rdfs:subClassOf <Mammal> .
+<Fish> rdfs:subClassOf <Animal> .
+<Fish> rdfs:subClassOf <Aquatic> .

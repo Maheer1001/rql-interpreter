@@ -1,0 +1,8 @@
+@base <http://example.org/> .
+@prefix ont: <http://example.org/ont/> .
+<alice> ont:name "Alice" ;
+        ont:email "alice@example.org" .
+<bob> ont:name "Bob" ;
+      ont:email "bob@example.org" .
+<carol> ont:name "Carol" .
+<dave> ont:name "Dave" .

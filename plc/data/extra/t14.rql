@@ -1,0 +1,8 @@
+LET @qux = <qux.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?org @ont:memberCount ?n }
+WHERE {
+  @qux { _ _ ?org } TYPE(?org) = URI
+}
+GROUP BY(?org) HAVING(?n = COUNT(?org))

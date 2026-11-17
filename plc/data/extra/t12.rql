@@ -1,0 +1,10 @@
+LET @foo = <foo.ttl>
+LET @baz = <baz.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:hasAge ?age }
+WHERE {
+  { @baz { ?s @ont:hasAge ?age } }
+  EXCEPT
+  { @foo { ?s @ont:name ?name } }
+}

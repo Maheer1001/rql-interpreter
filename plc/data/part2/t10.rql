@@ -1,0 +1,12 @@
+LET @foo = <foo.ttl>
+
+CONSTRUCT { ?x <http://purl.org/dc/terms/creator> ?y }
+WHERE {
+  @foo { ?x ?p ?y }
+  FILTER(
+    ?p == <http://purl.org/dc/elements/1.0/creator>
+    ||
+    ?p == <http://purl.org/dc/elements/1.1/creator>
+  )
+}
+

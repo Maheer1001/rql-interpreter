@@ -1,0 +1,14 @@
+@base <http://example.org/> .
+@prefix o: <http://example.org/ont/> .
+
+<alice> o:worksFor <http://example.org/uos> .
+<bob> o:studiesAt <uos> .
+<carol> o:worksFor <soton> .
+<dave> o:name "Dave" .
+
+<eve> o:studiesAt <uos> ;
+      o:worksFor <uos> .
+
+<frank> o:worksFor <uos> .
+
+<bob> o:studiesAt <uos> .

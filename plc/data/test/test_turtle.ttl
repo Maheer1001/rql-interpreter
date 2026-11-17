@@ -1,0 +1,6 @@
+@base <http://example.org/> .
+@prefix ont : <http://ont.example.org/> .
+<nmg> ont:name "Nick Gibbins" ; ont:age 23 ; 
+      ont:teaches <comp2312> , <comp2322> ;
+      ont:worksFor <uos> ;
+      ont:worksFor <uos> .

@@ -1,0 +1,10 @@
+LET @baz = <part1/baz.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  @baz { ?s @ont:name ?name }
+  @baz { ?s @ont:hasAge ?age }
+  FILTER(?name == "Alice" && ?name == 99)
+  FILTER(?age >= 21 && ?age == "old")
+}

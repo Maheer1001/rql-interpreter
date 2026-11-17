@@ -1,0 +1,35 @@
+@base <http://example.org/foo/> .
+@prefix ont: <http://example.org/ont/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc10: <http://purl.org/dc/elements/1.0/> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+
+<alice> ont:name "Alice" ;
+        ont:age 30 ;
+        ont:email "alice@example.org" .
+
+<http://example.org/bob> ont:name "Bob" ;
+                         ont:age 28 .
+
+<http://example.org/shared> ont:name "Same" .
+<http://example.org/shared> ont:age 1 .
+
+<http://example.org/jane> <http://example.org/p1> "Bob" .
+<http://example.org/mark> <http://ont.example.org/hasName> "Bob" .
+<http://example.org/mark> <http://example.org/p2> "Fred" .
+
+<http://example.org/alice> rdf:type foaf:Person .
+<http://example.org/bob> rdf:type foaf:Person .
+<http://example.org/carol> rdf:type foaf:Person .
+<http://example.org/bob> foaf:knows <http://example.org/nmg> .
+
+<http://example.org/x1> owl:sameAs <http://example.org/y1> .
+<http://example.org/z1> owl:sameAs <http://example.org/y1> .
+<http://example.org/x2> owl:sameAs <http://example.org/y2> .
+<http://example.org/y2> owl:sameAs <http://example.org/z2> .
+
+<http://example.org/doc1> dc10:creator <http://example.org/creator/Alice> .
+<http://example.org/doc2> dc11:creator <http://example.org/creator/Bob> .
+

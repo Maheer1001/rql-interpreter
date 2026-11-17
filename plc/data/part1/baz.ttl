@@ -1,0 +1,20 @@
+@base <http://example.org/baz/> .
+@prefix o: <http://example.org/ont/> .
+
+<alice> o:hasAge 30 ;
+        o:name "Alice" .
+
+<bob> o:hasAge 17 ;
+      o:name "Bob" .
+
+<carol> o:hasAge 21 ;
+        o:name "Carol" .
+
+<dave> o:hasAge 15 .
+
+<eve> o:hasAge 25 .
+
+<frank> o:hasAge 21 .
+<grace> o:hasAge 100 .
+
+<carol> o:hasAge 21 .

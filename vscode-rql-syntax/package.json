@@ -1,0 +1,29 @@
+{
+  "name": "vscode-rql-syntax",
+  "displayName": "RQL Syntax",
+  "description": "Syntax highlighting for RQL (resource query language) files.",
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://git.soton.ac.uk/comp2322/plc.git"
+  },
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "rql",
+      "aliases": ["RQL", "rql"],
+      "extensions": [".rql"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "rql",
+      "scopeName": "source.rql",
+      "path": "./syntaxes/rql.tmLanguage.json"
+    }]
+  }
+}

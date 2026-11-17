@@ -1,0 +1,8 @@
+LET @qux = <qux.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { @ont:stats @ont:totalTriples ?n }
+WHERE {
+  @qux { ?s ?p ?o }
+}
+GROUP BY(<http://example.org/ont/stats>) HAVING(?n = COUNT(?s))

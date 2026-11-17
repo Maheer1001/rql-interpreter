@@ -1,0 +1,9 @@
+LET @foo = <foo.ttl>
+LET @bar = <bar.ttl>
+
+CONSTRUCT { ?s ?p ?o }
+WHERE {
+  { @foo { ?s ?p ?o } }
+  UNION
+  { @bar { ?s ?p ?o } }
+}

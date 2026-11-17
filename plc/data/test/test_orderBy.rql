@@ -1,0 +1,14 @@
+LET @quux = <part1/quux.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:price ?price }
+WHERE {
+  @quux { ?s @ont:price ?price }
+}
+ORDER BY DESC(?price) FIRST(3)
+
+CONSTRUCT { ?s @ont:price ?price }
+WHERE {
+  @quux { ?s @ont:price ?price }
+}
+ORDER BY ASC(?price) LAST(2)

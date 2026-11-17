@@ -1,0 +1,33 @@
+@base <http://example.org/baz/> .
+@prefix o: <http://example.org/ont/> .
+
+<alice> o:hasAge 30 ;
+        o:name "Alice" .
+
+<bob> o:hasAge 17 ;
+      o:name "Bob" .
+
+<carol> o:hasAge 21 ;
+        o:name "Carol" .
+
+<dave> o:hasAge 15 .
+
+<eve> o:hasAge 25 .
+
+<frank> o:hasAge 21 .
+<grace> o:hasAge 100 .
+
+<carol> o:hasAge 21 .
+
+<http://example.org/bar/carol> o:age 25 .
+<http://example.org/bar/carol> o:name "Carol" .
+<http://example.org/bar/dave> o:age 40 .
+<http://example.org/bar/dave> o:name "Dave" .
+<http://example.org/bob> o:age 28 .
+<http://example.org/bob> o:name "Bob" .
+<http://example.org/foo/alice> o:age 30 .
+<http://example.org/foo/alice> o:email "alice@example.org" .
+<http://example.org/foo/alice> o:name "Alice" .
+<http://example.org/shared> o:age 1 .
+<http://example.org/shared> o:name "Same" .
+

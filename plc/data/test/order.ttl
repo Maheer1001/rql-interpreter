@@ -1,0 +1,12 @@
+@base <http://example.org/> .
+@prefix ont: <http://example.org/ont/> .
+
+<b> ont:p "cherry" .
+<a> ont:p <ref/x> .
+<a> ont:p 3 .
+<a> ont:p "apple" .
+<b> ont:p 1 .
+<a> ont:q "banana" .
+<b> ont:p <ref/a> .
+<a> ont:p "zebra" .
+<b> ont:q 7 .

@@ -1,0 +1,13 @@
+@base <http://example.org/bar/> .
+@prefix o: <http://example.org/ont/> .
+
+<carol> o:name "Carol" ;
+        o:age 25 .
+
+<dave> o:name "Dave" ;
+       o:age 40 .
+
+<http://example.org/bob> o:name "Bob" .
+
+<http://example.org/shared> o:name "Same" .
+<http://example.org/shared> o:age 1 .

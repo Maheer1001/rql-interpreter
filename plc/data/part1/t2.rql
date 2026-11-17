@@ -1,0 +1,8 @@
+LET @baz = <baz.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:hasAge ?age }
+WHERE {
+  @baz { ?s @ont:hasAge ?age }
+  FILTER(?age >= 21)
+}

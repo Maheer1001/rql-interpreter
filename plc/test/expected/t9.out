@@ -1,0 +1,7 @@
+<http://example.org/x1> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/x1> .
+<http://example.org/x1> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/z1> .
+<http://example.org/x2> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/x2> .
+<http://example.org/x2> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/z2> .
+<http://example.org/y2> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/y2> .
+<http://example.org/z1> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/x1> .
+<http://example.org/z1> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org/z1> .

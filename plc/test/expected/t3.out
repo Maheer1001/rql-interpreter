@@ -1,0 +1,5 @@
+<http://example.org/alice> <http://example.org/ont/worksFor> <http://example.org/uos> .
+<http://example.org/bob> <http://example.org/ont/studiesAt> <http://example.org/uos> .
+<http://example.org/eve> <http://example.org/ont/studiesAt> <http://example.org/uos> .
+<http://example.org/eve> <http://example.org/ont/worksFor> <http://example.org/uos> .
+<http://example.org/frank> <http://example.org/ont/worksFor> <http://example.org/uos> .

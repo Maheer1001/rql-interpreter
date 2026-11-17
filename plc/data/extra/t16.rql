@@ -1,0 +1,8 @@
+LET @quux = <quux.ttl>
+LET @ont = <http://example.org/ont/>
+
+CONSTRUCT { ?s @ont:price ?price }
+WHERE {
+  @quux { ?s @ont:price ?price }
+  FILTER( ?price >= IF(?s == <http://example.org/gadget>) THEN 80 ELSE 15 )
+}
