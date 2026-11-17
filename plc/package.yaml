@@ -1,7 +1,7 @@
 # Project information
 name:       plc
 version:    0.1.0.0
-homepage:   https://git.soton.ac.uk/comp2322/plc
+homepage:   https://github.com/Maheer1001/rql-interpreter
 license:    BSD-3-Clause
 author:     "Group 92 (COMP2322)"
 maintainer: "Group 92 (COMP2322)"

@@ -11,7 +11,7 @@ Haskell implementation of the PLC / RQL interpreter: Alex/Happy front end, resol
 | `data/` | Sample `.ttl` graphs and `.rql` queries (run CLI from `data/` or pass paths accordingly) |
 | `test/` | `stack test` |
 
-Repository-wide docs and the VS Code grammar live next to this folder: `../docs/`, `../vscode-rql-syntax/`.
+The VS Code grammar lives next to this folder in `../vscode-rql-syntax/`.
 
 ## Stack commands
 
