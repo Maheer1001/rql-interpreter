@@ -5,7 +5,7 @@
   "version": "0.0.3",
   "repository": {
     "type": "git",
-    "url": "https://git.soton.ac.uk/comp2322/plc.git"
+    "url": "https://github.com/Maheer1001/rql-interpreter.git"
   },
   "engines": {
     "vscode": "^1.110.0"
