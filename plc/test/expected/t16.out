@@ -1,0 +1,5 @@
+<http://example.org/quux/gadget> <http://example.org/ont/price> 75 .
+<http://example.org/quux/gadget> <http://example.org/ont/price> 100 .
+<http://example.org/quux/gadget> <http://example.org/ont/price> 101 .
+<http://example.org/quux/widget> <http://example.org/ont/price> 15 .
+<http://example.org/quux/widget> <http://example.org/ont/price> 25 .

@@ -1,0 +1,30 @@
+# Example programs and their expected output.
+#
+# Format: <run dir> <query> <expected>
+#   run dir  : working directory for the query, relative to plc/data
+#              (LET @g = <file.ttl> paths resolve against it)
+#   query    : .rql file, relative to the run dir
+#   expected : expected stdout, relative to plc/test/expected
+#
+# Read by test/Spec.hs (cabal test) and by scripts/setup-check.{sh,ps1}.
+# Blank lines in output are ignored; line order matters.
+
+part1 t1.rql t1.out
+part1 t2.rql t2.out
+part1 t3.rql t3.out
+part1 t4.rql t4.out
+part1 t5.rql t5.out
+part2 t6.rql t6.out
+part2 t7.rql t7.out
+part2 t8.rql t8.out
+part2 t9.rql t9.out
+part2 t10.rql t10.out
+part1 ../extra/t11.rql t11.out
+part1 ../extra/t12.rql t12.out
+extra t13.rql t13.out
+part1 ../extra/t14.rql t14.out
+part1 ../extra/t15.rql t15.out
+part1 ../extra/t16.rql t16.out
+test test_order.rql test_order.out
+. test/test_orderBy.rql test_orderBy.out
+extra ../test/test_regex.rql test_regex.out
