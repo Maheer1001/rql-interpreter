@@ -1,0 +1,4 @@
+<http://example.org/alice> <http://example.org/ont/name> "Alice" .
+<http://example.org/bob> <http://example.org/ont/name> "Bob" .
+<http://example.org/alice> <http://example.org/ont/email> "alice@example.org" .
+<http://example.org/bob> <http://example.org/ont/email> "bob@example.org" .
