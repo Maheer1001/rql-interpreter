@@ -59,14 +59,56 @@ With Stack: `stack exec -- plc-exe t2.rql`.
 
 Queries in `data/extra/` that read `foo.ttl`, `baz.ttl`, `qux.ttl` or `quux.ttl` use the graphs in `data/part1/`, so run them from there (for example `cabal run -v0 plc-exe -- ../extra/t14.rql`). Queries that use `part1/...` paths (in `data/test/`) run from `data/`.
 
-## Test
+## Testing
+
+Requirements: **GHC 9.6.x** (tested with 9.6.7) and **cabal-install 3.x** (tested with 3.12.1.0). Alex and Happy are fetched by cabal automatically. On a fresh machine run `cabal update` once before the first build.
+
+### Quick setup check
+
+To confirm your toolchain and everything else is wired up correctly in one go, run the setup check from the repo root:
+
+```bash
+sh scripts/setup-check.sh                                    # Linux, macOS, Git Bash
+```
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup-check.ps1   # Windows (or: pwsh scripts/setup-check.ps1)
+```
+
+It prints `PASS`/`FAIL` for each step and ends with `SETUP CHECK PASSED` (exit 0) or `SETUP CHECK FAILED` plus a list of what failed (exit 1). Add `--no-test-suite` (sh) or `-NoTestSuite` (PowerShell) to skip the final step.
+
+| Step | What it proves |
+|---|---|
+| Toolchain | `ghc` and `cabal` are on your `PATH` and are the supported versions |
+| Build | `cabal build exe:plc-exe` succeeds (dependencies, Alex and Happy all resolve) |
+| Example programs | The real `plc-exe` binary, run from the right folder, prints exactly the expected Turtle for every program in [`plc/test/golden.txt`](plc/test/golden.txt) (diff shown on mismatch) |
+| Error reporting | Parse, type and evaluation errors come out on stderr with the right heading and nothing on stdout |
+| Test suite | `cabal test` passes |
+
+### Test suite
 
 ```bash
 cd plc
-cabal test
+cabal test                                  # summary only
+cabal test --test-show-details=direct       # one PASS/FAIL line per test
 ```
 
-The suite runs `t1`–`t10` and `test_order` against the expected outputs in `test/expected/`, and checks that the type-checker and parse-error cases fail as expected (17 checks). With Stack: `stack test`.
+With Stack: `stack test`. The suite (`plc/test/Spec.hs`, 66 tests) exercises the library pipeline directly, stage by stage:
+
+| Group | What it proves |
+|---|---|
+| RQL lexer | Source text becomes the right tokens (graph files vs URIs, variables, literals, multi-word keywords, operators, comments, error tokens for unknown characters) |
+| Turtle front end | `.ttl` files parse and normalise correctly: `@base` and `@prefix`, `;` and `,` lists, comments, duplicate triples removed, syntax errors and relative prefix URIs rejected |
+| Example programs | Every query in `plc/test/golden.txt` (`t1`–`t16`, `test_order`, `test_orderBy`, `test_regex`) produces the output in `plc/test/expected/` |
+| Query constructs | One small program per language feature (the example programs add `UNION`, `COUNT`, `LAST`, `IF … THEN … ELSE`, `REGEX` and `TYPE(…) = URI`): pattern matching with prefixes, literals and `_`, `INTERSECT`/`EXCEPT`/`OPTIONAL`, `FILTER` with `&&`, `\|\|`, `!`, arithmetic and `ABS`, string and URI comparison, `TYPE`, `GROUP BY` + `HAVING` with `SUM`/`MIN`/`MAX`/`AVG`, `ORDER BY`, `FIRST`, `DISTINCT`, multiple queries per program |
+| Error paths | Lexical, parse, type, resolution (undefined graph), missing-file and evaluation errors are each reported as that kind of error; valid type-checker cases pass |
+
+### Adding a test
+
+- **New example program:** add the `.rql` (and any `.ttl`) under `plc/data/`, save the expected output as `plc/test/expected/<name>.out`, and add a line `<run dir> <query> <expected>` to `plc/test/golden.txt`. Both `cabal test` and the setup check pick it up.
+- **New construct or error case:** add an entry to `constructTests` or `errorTests` in `plc/test/Spec.hs`.
+
+Note: `plc-exe` exits with status 0 even when it reports an error, so scripts should check stderr rather than the exit code (the setup check does this).
 
 ## Layout
 
@@ -75,7 +117,8 @@ The suite runs `t1`–`t10` and `test_order` against the expected outputs in `te
 | `plc/src/` | Library: `Lexer.x`, `Parser.y`, `Resolver.hs`, `TypeChecker.hs`, `Evaluator.hs`, and `Turtle/` (Turtle lexer, parser and normaliser) |
 | `plc/app/` | `plc-exe` CLI and error formatting for parse and type errors |
 | `plc/data/` | Sample graphs and queries (`part1/`, `part2/`, `extra/`) plus type-checker cases |
-| `plc/test/` | Test suite (`cabal test` / `stack test`) with expected outputs |
+| `plc/test/` | Test suite (`cabal test` / `stack test`), `golden.txt` manifest and expected outputs |
+| `scripts/` | `setup-check.sh` / `setup-check.ps1`: toolchain, build and end-to-end check |
 | `vscode-rql-syntax/` | VS Code extension with a TextMate grammar for `.rql` |
 
 See [`plc/README.md`](plc/README.md) for Stack commands and notes on Alex and Happy.
